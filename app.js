@@ -29,6 +29,19 @@
 //     })
 // })
 
+const normPath = (p) => {
+  // remove trailing slashes
+  p = (p || '/').replace(/\/+$/, '');
+  // treat /index.html as /
+  if (p.endsWith('/index.html')) p = p.slice(0, -'/index.html'.length) || '/';
+  return p || '/';
+};
+
+// Example use:
+const current = normPath(location.pathname);
+// compare links as normPath(new URL(href, location.href).pathname)
+
+
 
 
 // -------------------- NAV SCROLL EFFECT --------------------
