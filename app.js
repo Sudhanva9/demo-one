@@ -42,28 +42,28 @@ window.addEventListener('scroll', () => {
 const BOOK_READ_DATA = [
   // ---- Grey Man series ----
   {
-    cover: '/img/books/gm1.jpg',
+    cover: 'img/books/gm1.jpg',
     title: 'The Gray Man',
     author: 'Mark Greaney',
     note: 'The #1 Gray Man novel. The go-to book to enjoy action. It is rare but the movie is just as good.',
     rating: 4.8
   },
   {
-    cover: '/img/books/gm2.jpg',
+    cover: 'img/books/gm2.jpg',
     title: 'On Target',
     author: 'Mark Greaney',
     note: 'A Gray Man novel. Sustained, did not disappoint.',
     rating: 4.3
   },
   {
-    cover: '/img/books/gm3.jpg',
+    cover: 'img/books/gm3.jpg',
     title: 'Ballistic',
     author: 'Mark Greaney',
     note: 'A Gray Man novel. A bit monotonous.',
     rating: 4
   },
   {
-    cover: '/img/books/gm4.jpg',
+    cover: 'img/books/gm4.jpg',
     title: 'Burner',
     author: 'Mark Greaney',
     note: 'A Gray Man novel.',
@@ -71,7 +71,7 @@ const BOOK_READ_DATA = [
   },
 
   {
-    cover: '/img/books/tjnd.jpg',
+    cover: 'img/books/tjnd.jpg',
     title: 'Drowning: The Rescue of Flight 1421 ----------- Most Recent',
     author: 'T. J. Newman',
     note: 'High-stakes aviation thriller about a downed flight and a race against time underwater.',
@@ -81,21 +81,21 @@ const BOOK_READ_DATA = [
 
   // ---- Dan Brown series ----
   {
-    cover: '/img/books/dbad.jpg',
+    cover: 'img/books/dbad.jpg',
     title: 'Angels & Demons',
     author: 'Dan Brown',
     note: 'Robert Langdon series. My first Dan Brown book. Fantastic & gripping. Could not put the book down.',
     rating: 4.8
   },
   {
-    cover: '/img/books/dbdvc.jpg',
+    cover: 'img/books/dbdvc.jpg',
     title: 'The Da Vinci Code',
     author: 'Dan Brown',
     note: 'Robert Langdon series.',
     rating: 4.5
   },
   {
-    cover: '/img/books/dbo.jpg',
+    cover: 'img/books/dbo.jpg',
     title: 'Origin',
     author: 'Dan Brown',
     note: 'Robert Langdon series.',
@@ -104,14 +104,14 @@ const BOOK_READ_DATA = [
 
   // ---- Shawshank Redemption (+ extra King you added) ----
   {
-    cover: '/img/books/ssr.jpg',
+    cover: 'img/books/ssr.jpg',
     title: 'The Shawshank Redemption',
     author: 'Stephen King',
     note: 'Novella (Rita Hayworth and Shawshank Redemption). Picked it up at an airport. A must-read!',
     rating: 4.5
   },
   {
-    cover: '/img/books/skbs.jpg',
+    cover: 'img/books/skbs.jpg',
     title: 'Billy Summers --------------------------- Currently Reading',
     author: 'Stephen King',
     note: 'Standalone thriller.',
@@ -120,14 +120,14 @@ const BOOK_READ_DATA = [
 
   // ---- James Patterson ----
   {
-    cover: '/img/books/jpacas.jpg',
+    cover: 'img/books/jpacas.jpg',
     title: 'Along Came a Spider',
     author: 'James Patterson',
     note: 'Alex Cross #1.',
     rating: 4.5
   },
   {
-    cover: '/img/books/jppi.jpg',
+    cover: 'img/books/jppi.jpg',
     title: 'Private India',
     author: 'James Patterson & Ashwin Sanghi',
     note: 'Private series (India). Not a James Patterson-level book.',
@@ -136,7 +136,7 @@ const BOOK_READ_DATA = [
 
   // ---- Hound of the Baskervilles ----
   {
-    cover: '/img/books/shb.jpg',
+    cover: 'img/books/shb.jpg',
     title: 'The Hound of the Baskervilles',
     author: 'Arthur Conan Doyle',
     note: 'Sherlock Holmes, my first ever novel. My buddy handed this book to me at my school library & there is no turning back.',
@@ -145,7 +145,7 @@ const BOOK_READ_DATA = [
 
   // ---- Dr. JMH ----
   {
-    cover: '/img/books/djmh.jpg',
+    cover: 'img/books/djmh.jpg',
     title: 'Strange Case of Dr Jekyll and Mr Hyde',
     author: 'Robert Louis Stevenson',
     note: 'Gothic novella. My childhood read, & an introduction to western stories. Was quite fascinated.',
@@ -154,49 +154,49 @@ const BOOK_READ_DATA = [
 
   // ---- HP Series ----
   {
-    cover: '/img/books/hp1.jpg',
+    cover: 'img/books/hp1.jpg',
     title: "Harry Potter and the Sorcerer's Stone",
     author: 'J.K. Rowling',
     note: 'Harry Potter #1.',
     rating: 4.5
   },
   {
-    cover: '/img/books/hp2.jpg',
+    cover: 'img/books/hp2.jpg',
     title: 'Harry Potter and the Chamber of Secrets',
     author: 'J.K. Rowling',
     note: 'Harry Potter #2.',
     rating: 4.5
   },
   {
-    cover: '/img/books/hp3.jpg',
+    cover: 'img/books/hp3.jpg',
     title: 'Harry Potter and the Prisoner of Azkaban',
     author: 'J.K. Rowling',
     note: 'Harry Potter #3.',
     rating: 4.5
   },
   {
-    cover: '/img/books/hp4.jpg',
+    cover: 'img/books/hp4.jpg',
     title: 'Harry Potter and the Goblet of Fire',
     author: 'J.K. Rowling',
     note: 'Harry Potter #4.',
     rating: 4.5
   },
   {
-    cover: '/img/books/apj.jpg',
+    cover: 'img/books/apj.jpg',
     title: 'Wings of Fire',
     author: 'A. P. J. Abdul Kalam (with Arun Tiwari)',
     note: 'Autobiography tracing Kalam’s journey from Rameswaram to ISRO/DRDO and India’s missile program.',
     rating: 5
   },
   {
-    cover: '/img/books/pcta.jpg',
+    cover: 'img/books/pcta.jpg',
     title: 'The Alchemist',
     author: 'Paulo Coelho',
     note: 'This was pretty decent and a good read.',
     rating: 4
   },
   {
-    cover: '/img/books/askk.jpg',
+    cover: 'img/books/askk.jpg',
     title: 'Keepers of the Kalachakra',
     author: 'Ashwin Sanghi',
     note: 'Mythology-meets-science thriller.',
@@ -207,49 +207,49 @@ const BOOK_READ_DATA = [
 
 const BOOK_WISHLIST_DATA = [
   {
-    cover: '/img/books/krbe.jpg',
+    cover: 'img/books/krbe.jpg',
     title: 'The Book of Elsewhere',
     author: 'Keanu Reeves & China Miéville',
     note: 'A BRZRKR novel.',
     rating: 0
   },
   {
-    cover: '/img/books/lc1.jpg',
+    cover: 'img/books/lc1.jpg',
     title: 'Killing Floor',
     author: 'Lee Child',
     note: 'Jack Reacher #1.',
     rating: 0
   },
   {
-    cover: '/img/books/jb1.jpg',
+    cover: 'img/books/jb1.jpg',
     title: 'The Bourne Identity',
     author: 'Robert Ludlum',
     note: 'Jason Bourne #1.',
     rating: 0
   },
   {
-    cover: '/img/books/jb2.jpg',
+    cover: 'img/books/jb2.jpg',
     title: 'The Bourne Supremacy',
     author: 'Robert Ludlum',
     note: 'Jason Bourne #2.',
     rating: 0
   },
   {
-    cover: '/img/books/jb3.jpg',
+    cover: 'img/books/jb3.jpg',
     title: 'The Bourne Ultimatum',
     author: 'Robert Ludlum',
     note: 'Jason Bourne #3.',
     rating: 0
   },
   {
-    cover: '/img/books/jrngb.jpg',
+    cover: 'img/books/jrngb.jpg',
     title: 'Jack Reacher: Never Go Back',
     author: 'Lee Child',
     note: 'Jack Reacher (movie tie-in).',
     rating: 0
   },
   {
-    cover: '/img/books/jros.jpg',
+    cover: 'img/books/jros.jpg',
     title: 'Jack Reacher: One Shot',
     author: 'Lee Child',
     note: 'Jack Reacher #9 (movie tie-in).',
@@ -706,17 +706,17 @@ document.addEventListener('DOMContentLoaded', () => {
 (() => {
   // Use leading "/" for local dev. Switch to "img/..." on GitHub Pages.
   const HERO_IMAGES = [
-    '/img/scene1.jpg',
-    '/img/scene2.jpg',
-    '/img/scene3.jpg',
-    '/img/scene4.jpg',
-    '/img/scene5.jpg',
+    'img/scene1.jpg',
+    'img/scene2.jpg',
+    'img/scene3.jpg',
+    'img/scene4.jpg',
+    'img/scene5.jpg',
   ];
   const SIDE_IMAGES = [
-    '/img/side1.jpg',
-    '/img/side2.jpg',
-    '/img/side0.jpg',
-    '/img/side3.jpg'
+    'img/side1.jpg',
+    'img/side2.jpg',
+    'img/side0.jpg',
+    'img/side3.jpg'
   ];
 
   // Keep timer ids so we can clear them when SPA replaces content
