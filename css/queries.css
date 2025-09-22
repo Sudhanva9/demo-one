@@ -388,10 +388,6 @@
     height: 155vh;
   }
 
-  /* .ai-section {
-    height: 320vh;
-  } */
-
   section.ai-section {
     height: 370vh;
   }
@@ -403,9 +399,6 @@
   .con-img-box img {
     height: 12rem;
   }
-
-  /* .dsa-section {
-  } */
 
   section.dsa-section {
     height: 320vh;
@@ -429,20 +422,20 @@
   }
 
   #prj-gallery {
-    padding-left: 12%;
+    padding-left: 14%;
     padding-bottom: 6rem;
   }
 
   #prj-img {
     height: 30rem;
-    width: 32rem;
+    width: 100%;
   }
 
   #prj-grid {
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
     text-align: center;
-    width: 70rem;
+    width: 65rem;
   }
 }
 
