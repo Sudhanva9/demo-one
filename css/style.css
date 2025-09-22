@@ -292,7 +292,6 @@ nav {
 .main-nav.scrolled {
   background-color: var(--base-nav); /* Example background */
   backdrop-filter: blur(1.5px);
-  
 }
 
 .main-nav-list {
@@ -697,11 +696,11 @@ body:not(.light-mode) .icon-dark {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
-.feature-box :hover,
+/* .feature-box :hover,
 .feature-box-two :hover,
 .feature-box-three :hover,
 .feature-box-four :hover {
-}
+} */
 
 .images :hover {
   -webkit-transform: scale(1.02) translateY(0.7rem);
@@ -1557,6 +1556,17 @@ a.experience-box:focus-visible {
   /* border-radius: 10px; */
 }
 
+.ai-img-box {
+  display: grid;
+  place-items: center;
+}
+
+.ai-img {
+  height: 25rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
 .dsa-img {
   height: 45rem;
   border-radius: 15px;
@@ -1625,11 +1635,11 @@ a.experience-box:focus-visible {
 }
 
 /* Optional per-card tweaks */
-#prj-one {
-  /* e.g., custom offsets if needed */
+/* #prj-one {
+  
 }
 #prj-two {
-}
+} */
 
 /* Each card link is a clipped hover surface */
 .prj-gallery a {
@@ -1864,85 +1874,16 @@ a.experience-box:focus-visible {
 
 /* ---------------------------------------- MEDIA QUERIES ---------------------------------------------------- */
 
-
-
-/* ---------------------------------------------------------------------------------------------------------------- */
-
-/* 32" (≈ 2560px and up) */
-@media (min-width: 2560px) {
-  /* Example (uncomment if needed):
-  .container, .row { max-width: 1400px; margin-inline: auto; }
-  */
-}
-
-/* 28" (≈ 2300–2559px) */
-@media (max-width: 2559px) and (min-width: 2300px) {
-  /* Example:
-  .container, .row { max-width: 1280px; margin-inline: auto; }
-  */
-}
-
-/* 24" (≤ 1920px) */
-@media (max-width: 1920px) {
-  /* Example:
-  nav { left: 50%; transform: translateX(-50%); width: 70%; }
-  */
-}
-
-/* 18–19" (≤ 1600px) */
-@media (max-width: 1600px) {
-  /* Example:
-  .dsa-img { height: 40rem; }   /* reduce very tall images slightly */
-  */
-}
-
-/* 14–15" laptops (≤ 1366px) */
-@media (max-width: 1366px) {
-  /* Example:
-  .header { height: 68vh; }     /* tighten hero height */
-  .text-box { /* top: 52%; */ } /* adjust hero text position if needed */
-  */
-}
-
-/* Tablets (≤ 1024px) */
-@media (max-width: 1024px) {
-  /* Example stacking:
-  .row [class^="col-"] { width: 100% !important; margin-right: 0 !important; }
-  */
-  /* Example single-column projects:
-  .prj-grid { grid-template-columns: 1fr; width: min(700px, 92%); margin-inline: auto; }
-  .prj-gallery [id="prj-img"] { height: 26rem; }
-  */
-  /* Example experience step pattern flatten:
-  .exp-box-one, .exp-box-two, .exp-box-three, .exp-box-four, .exp-box-five { transform: none; width: 100%; }
-  */
-}
-
-/* Mobiles (≤ 768px) */
-@media (max-width: 768px) {
-  /* Example nav fit:
-  nav { width: 94%; left: 50%; transform: translateX(-50%); }
-  */
-  /* Example images:
-  .prj-gallery [id="prj-img"] { height: 22rem; }
-  .dsa-img { height: 28rem; }
-  */
-  /* Example text widths:
-  .notes-box-text, .story-box, .dsa-text-box { width: 90%; margin-inline: auto; }
-  */
-}
-
-/* Small mobiles (≤ 480px) */
-@media (max-width: 480px) {
-  /* Example tighter paddings:
-  .main-nav-link { font-size: 1rem; padding: 6px 12px; }
-  */
-  /* Example cards:
-  .book-card { grid-template-columns: 64px 1fr; padding: .75rem .9rem; }
-  .book-cover { width: 64px; height: 86px; }
-  */
-  /* Example project images:
-  .prj-gallery [id="prj-img"] { height: 18rem; border-radius: 40px; }
-  .prj-gallery a { border-radius: 40px; }
-  */
-}
+/* ---------- SECTION RULES / LINES BETWEEN AREAS ---------- */
+/* Use any that apply in your codebase */
+/* hr.section-rule,
+  .section-line,
+  .rule,
+  .divider {
+    height: 1px;
+    border: 0;
+    background: var(--base-border);
+    opacity: 0.55;
+    width: min(1200px, 92%);
+    margin: 2.25rem auto; /* consistent rhythm between sections 
+  }*/
