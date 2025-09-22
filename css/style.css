@@ -1,0 +1,1948 @@
+/* 
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+#1e2125
+#8fdcc2 
+Light Background: rgb(237, 231, 222);
+Cards: light pink: hsla(284, 61%, 74%, 1),
+Mint: hsla(172, 45%, 75%, 1),
+Rust: hsla(22, 62%, 76%, 1),
+babyblue: hsla(206, 84%, 86%, 1)
+
+hsla(36, 31%, 90%, 1)
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  /* cursor: url(../img/ambblack.png), none !important; */
+}
+
+::selection {
+  background: var(--base-text);
+  color: var(--base-color);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --base-color: #1a1a19;
+  --base-text: #8fdcc2;
+  --base-variant: #262a2e;
+  --base-hover: #31363b;
+  --base-border: #424a50;
+  --base-nav: rgba(26, 26, 25, 0.9);
+  --scroll-bar: #5d6972;
+  --secondary-color: #8fdcc2;
+  --secondary-text: #1a1a19;
+  --transition-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.light-mode {
+  --base-color: #efeee8;
+  --base-text: #1a1a19;
+  --base-variant: #f4f3ef;
+  --base-hover: #f9f9f7;
+  --base-border: #b7b8ba;
+  --base-nav: rgba(255, 255, 255, 0.9);
+  --scroll-bar: #424a50;
+  --secondary-color: #1a1a19;
+  --secondary-text: #f4f9f7;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar {
+  width: 7px; /* Width of the scrollbar */
+}
+
+/* Scrollbar Thumb */
+::-webkit-scrollbar-thumb {
+  background-color: var(--base-text); /* Thumb color */
+  /* border-radius: 6px;  */
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+  background: var(--base-color); /* Track background */
+}
+
+/* Optional: Hover Effect */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-bar); /* Lighter color on hover */
+}
+
+/* ----------------------------- ROW-COLUMNS----------------------- */
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
+  display: flex;
+}
+.row:not(:last-child) {
+  margin-bottom: 8rem;
+}
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row [class^="col-"] {
+  float: left;
+}
+.row [class^="col-"]:not(:last-child) {
+  margin-right: 6rem;
+}
+.row .col-1-of-2 {
+  width: calc((100% - 6rem) / 2);
+}
+.row .col-1-of-3 {
+  width: calc((100% - 2 * 6rem) / 3);
+}
+.row .col-2-of-3 {
+  width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem);
+}
+.row .col-1-of-4 {
+  width: calc((100% - 3 * 6rem) / 4);
+}
+.row .col-2-of-4 {
+  width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem);
+}
+.row .col-3-of-4 {
+  width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem);
+}
+
+/* LOADER STYLE  */
+
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 80px;
+}
+
+header h4 {
+  position: absolute;
+  left: 10%;
+  bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+/* Splash Screen */
+/*
+.intro {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #8fdcc2;
+  /* #1e2125; 
+  transition: 1s;
+}
+
+.logo-header {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #8fdcc2;
+}
+
+ .splash-logo {
+  position: relative;
+  display: inline-block;
+  bottom: -20px;
+  opacity: 0;
+  height: 50px;
+  color: #8fdcc2;
+}
+
+.splash-logo.active {
+  bottom: 0;
+  opacity: 1;
+  color: #8fdcc2;
+  transition: ease-in-out 0.5s;
+}
+
+.splash-logo.fade {
+  bottom: 150px;
+  opacity: 0;
+  transition: ease-in-out 0.5s;
+} */
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--secondary-color);
+  /* padding: 30px; */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  /* width: 100%; */
+  /* overflow: hidden; */
+}
+
+.header {
+  height: 80vh;
+  background: var(--base-color);
+
+  /* linear-gradient(
+    to bottom right,
+    rgb(143, 220, 194),
+    rgba(158, 128, 9, 0.352),
+    rgb(143, 220, 194)
+  ); */
+
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  /* clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); */
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 49%;
+}
+
+.logo {
+  height: 35px;
+  animation: moveInDown 0.5s ease-out 3s;
+  animation-fill-mode: backwards;
+  color: #8fdcc2;
+}
+
+/* --------------  NAVIGATION  --------------- */
+
+nav {
+  top: 0;
+  /* left: 33%; */
+  height: 3.5rem;
+  width: 34%;
+  font-family: "IBM Plex Mono", monospace;
+  position: fixed;
+  z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 30px;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center; /* Center the nav horizontally */
+  align-items: center;
+  text-align: center;
+}
+
+.navi {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Reset default link decoration/colors inside the nav */
+#main-nav .main-nav-link,
+#main-nav .main-nav-link:link,
+#main-nav .main-nav-link:visited,
+#main-nav .main-nav-link:hover,
+#main-nav .main-nav-link:active {
+  text-decoration: none;
+  color: var(--base-text);
+}
+
+/* Keep your pill + smooth color/bg transition */
+#main-nav .main-nav-link {
+  padding: 6px 16px;
+  border-radius: 25px;
+  transition: background-color 0.25s var(--transition-bounce),
+    color 0.25s var(--transition-bounce);
+}
+
+/* Active item */
+#main-nav .main-nav-link.nav-active {
+  background-color: var(--base-variant);
+  color: var(--base-text);
+}
+
+/* Accessible custom focus (instead of default outline/underline) */
+#main-nav .main-nav-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--base-border);
+  border-radius: 25px;
+  text-decoration: none;
+}
+/* ------------------------------------------ */
+
+.main-nav.scrolled {
+  background-color: var(--base-nav); /* Example background */
+  backdrop-filter: blur(1.5px);
+  
+}
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+#work-btn {
+  display: inline-flex;
+  /* padding: 6px 16px; */
+  /* background-color: var(--base-variant); */
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-slash {
+  margin-left: 5px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 23px;
+  height: 23px;
+  font-size: 10px;
+  font-weight: bold;
+  border: 2px solid var(--base-border);
+  border-radius: 6px;
+  color: var(--base-text);
+  line-height: normal;
+}
+
+.main-nav-link:link {
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 6px 16px;
+  border-radius: 25px;
+  transition: background-color 0.25s var(--transition-bounce),
+    color 0.25s var(--transition-bounce);
+}
+
+.main-nav-link.nav-active {
+  background-color: var(--base-variant);
+  color: var(--base-text);
+}
+
+/* .main-nav-link:link,
+.main-nav-link:visited {
+  text-decoration: none;
+  color: var(--base-text);
+  font-weight: 500;
+  font-size: 1.1rem;
+} */
+
+/* -------------------- Mode Toggle ------------------- */
+
+.mode {
+  float: right;
+  /* position: absolute; */
+  position: fixed;
+  z-index: 1000;
+  width: max-content;
+  padding-top: 70px;
+  top: 0;
+  right: 5%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+}
+
+/* #mode.scrolled {
+  background-color: var(--base-nav); 
+} */
+
+#mode-toggler {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--base-text);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  /* padding: 6px 6px; */
+  height: 50px;
+  width: 50px;
+  background-color: var(--base-variant);
+  border-radius: 50%;
+  position: fixed;
+}
+
+#mode-toggler svg {
+  fill: var(--base-text);
+}
+
+#mode-toggler svg:last-child {
+  display: none;
+}
+
+.light-mode #mode-toggler svg:first-child {
+  display: none;
+}
+
+.light-mode #mode-toggler svg:last-child {
+  display: block;
+}
+
+.icon {
+  transition: transform 0.3s ease-in-out;
+  display: block;
+  margin: auto;
+}
+
+/* Initial animation on page load */
+body.light-mode .icon-light {
+  animation: move-down 0.5s ease-out;
+}
+
+body.light-mode .icon-dark {
+  animation: move-up 0.5s ease-out;
+}
+
+/* Animate icons on dark mode */
+body:not(.light-mode) .icon-light {
+  animation: move-up 0.5s ease-out;
+}
+
+body:not(.light-mode) .icon-dark {
+  animation: move-down 0.5s ease-out;
+}
+
+/* -------------------- HEADER ------------------- */
+
+.text-box {
+  position: absolute;
+  width: max-content;
+  padding-top: 70px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  color:
+     /* #1e2125; */ var(--base-text);
+  backface-visibility: hidden;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: clamp(3.2rem, 0.5692rem + 7.238vw, 13.75rem);
+  font-weight: 500;
+  letter-spacing: -2px;
+  font-family: "Purple Purse", serif;
+  text-align: center;
+  margin-bottom: -20px;
+  line-height: 100%;
+  animation: delay;
+  animation: moveInLeft 0.5s ease-out 0.5s;
+  animation-fill-mode: backwards;
+
+  /* animation-delay: 2s; 
+       animation-iteration-count: 3;
+       IBM Plex Mono 
+    */
+}
+
+/* A Designer & Developer */
+.heading-primary-sub-one {
+  display: block;
+  font-size: clamp(3.2rem, 0.5692rem + 5.238vw, 13.75rem);
+  /* 100px */
+  font-weight: 500;
+  font-family: "Dawning of a New Day", cursive;
+  text-align: center;
+  animation: moveInRight 0.5s ease-out 0.5s;
+  animation-fill-mode: backwards;
+}
+
+/* Passion */
+.heading-primary-sub-two {
+  display: block;
+  font-size: clamp(1rem, 0.8852rem + 0.4898vw, 1.275rem);
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  color: 
+    /* #025a4e; */ var(--base-text);
+  text-align: center;
+  width: 65%;
+  position: relative;
+  padding-top: 2%;
+  left: 18%;
+  /* transform: translate(-50%, -50%); */
+
+  animation: moveInUp 0.5s ease-in 0.5s;
+  animation-fill-mode: backwards;
+}
+
+/* NAMASTHE */
+.heading-primary-sub-three {
+  display: block;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  font-family: "Dawning of a New Day", cursive;
+  /* position: relative; */
+  align-items: center;
+  text-align: center;
+  margin-bottom: 15px;
+
+  animation: moveInDown 0.5s ease-out 0.5s;
+  animation-fill-mode: backwards;
+  /* animation-name: moveInDown;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; */
+}
+
+@keyframes moveInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  80% {
+    /* transform: translateY(-10px); */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  80% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    /* transform: translateY(20px); */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    /* transform: translateY(-20px); */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes move-up {
+  from {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes move-down {
+  from {
+    transform: translateY(-15px);
+  }
+  80% {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* -------------------- FEATURE ------------------- */
+
+.section-feature {
+  background-color: var(--base-color);
+  height: 150vh;
+  /* padding: 4rem 0; */
+}
+
+.feature-box,
+.feature-box-two,
+.feature-box-three,
+.feature-box-four {
+  color: #262a2e;
+  font-size: 1.5rem;
+  position: relative;
+  padding: 1.5rem 2.5rem;
+  border-radius: 60px;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.03);
+  height: 34rem;
+  animation: moveInUp 1s ease-in 1s;
+  animation-fill-mode: backwards;
+  z-index: 2;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.feature-box {
+  background-color: rgb(224, 229, 148);
+  margin-left: 3rem;
+  margin-right: -8rem;
+}
+
+.feature-box-two {
+  background-color: hsla(172, 45%, 75%, 1);
+  margin-left: 6rem;
+  margin-right: 3rem;
+}
+
+.feature-box-three {
+  background-color: hsla(206, 84%, 86%, 1);
+  margin-left: 3rem;
+  margin-right: 6rem;
+}
+
+.feature-box-four {
+  background-color: hsla(22, 62%, 76%, 1);
+  margin-left: -8rem;
+  margin-right: 3rem;
+}
+
+.texts {
+  float: right;
+}
+
+.feature-box__text {
+  text-transform: uppercase;
+  font-size: clamp(1rem, 0.8852rem + 0.4898vw, 1.145rem);
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: "IBM Plex Mono", monospace;
+  float: right;
+  padding: 1rem 1rem;
+}
+
+.heading-tertiary {
+  font-size: 2.5rem;
+  text-align: right;
+  position: absolute;
+  top: 11%;
+  right: 9.5%;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.heading-tertiary-two {
+  font-size: 2.5rem;
+  text-align: right;
+  position: absolute;
+  top: 11%;
+  right: 5.5%;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.feature-box img,
+.feature-box-two img,
+.feature-box-three img,
+.feature-box-four img {
+  position: absolute;
+  top: 10rem;
+  left: 8rem;
+  border-radius: 15px;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.feature-box :hover,
+.feature-box-two :hover,
+.feature-box-three :hover,
+.feature-box-four :hover {
+}
+
+.images :hover {
+  -webkit-transform: scale(1.02) translateY(0.7rem);
+  transform: scale(1.02) translateY(0.7rem);
+  -webkit-box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+}
+
+.feature-box-two img {
+  height: 35rem;
+  width: auto;
+  z-index: 0;
+}
+
+.feature-box img {
+  height: 35rem;
+  width: auto;
+  z-index: 0;
+}
+
+.feature-box-three img {
+  height: 30rem;
+  width: auto;
+  z-index: 0;
+}
+
+.feature-box-four img {
+  height: 35rem;
+}
+
+/* .article-icon {
+  position: absolute;
+  right: 20rem;
+  
+  z-index: 5;
+  margin-top: -2rem;
+  transform: scale(1.5); */
+/* opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease; 
+}*/
+
+/* .article-icon svg {
+  -webkit-transform: skewX(10deg);
+  transform: skewX(10deg);
+}
+
+.feature-box-two:hover ~ .article-icon svg {
+  opacity: 1;
+  visibility: visible;
+} */
+
+/* --------------- ABOUT ------------------ */
+
+.img-about-box {
+  margin-top: 20rem;
+  margin-left: 16rem;
+  height: 35rem;
+  width: 40rem;
+}
+
+.img-about-box img {
+  width: auto;
+  height: 35rem;
+}
+
+.about-section {
+  background-color: var(--base-color);
+}
+.new-text-box {
+  position: absolute;
+  width: max-content;
+  /* padding-top: 70px; */
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading {
+  color:
+     /* #1e2125; */ var(--base-text);
+  backface-visibility: hidden;
+}
+.heading-about {
+  display: block;
+  font-size: clamp(3.2rem, 0.5692rem + 7.238vw, 13.75rem);
+  font-weight: 500;
+  letter-spacing: -2px;
+  font-family: "Dawning of a New Day", cursive;
+  text-align: center;
+  line-height: 100%;
+  /* animation: delay; */
+  animation: moveInDown 0.1s ease-out 0.1s;
+  animation-fill-mode: backwards;
+}
+
+.about-box {
+  margin-top: 30%;
+  margin-left: -5rem;
+}
+
+.about-box-head {
+  display: block;
+  text-align: left;
+  font-size: clamp(1.2rem, 0.2692rem + 2.7vw, 4.75rem);
+  font-weight: 800;
+  letter-spacing: 0px;
+  font-family: "Purple Purse", serif;
+  /* margin-bottom: -20px; */
+  width: 55%;
+  position: relative;
+  /* padding-top: 2%; */
+  left: 18%;
+  line-height: 140%;
+  /* animation: delay;
+  animation: moveInLeft 1s ease-out 1s;
+  animation-fill-mode: backwards; */
+}
+
+.about-box-text {
+  display: block;
+  font-size: clamp(1rem, 0.8852rem + 0.4898vw, 1.275rem);
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  color: 
+    /* #025a4e; */ var(--base-text);
+  text-align: left;
+  width: 68%;
+  position: relative;
+  padding-top: 2%;
+  left: 18%;
+  /* transform: translate(-50%, -50%); */
+
+  animation: moveInUp 0.2s ease-in 0.2s;
+  animation-fill-mode: backwards;
+}
+
+/* image rotator fade */
+#rot-hero,
+#rot-side {
+  opacity: 1;
+  transition: opacity 350ms ease;
+}
+.img-fade {
+  opacity: 0;
+}
+
+/* --------------- EXPERIENCE --------------- */
+
+/* EXPERIENCE (step pattern) */
+/* EXPERIENCE (step pattern) */
+.section-experience {
+  background-color: var(--base-color);
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
+
+/* Clickable card (anchor-as-card) */
+a.experience-box {
+  display: block;
+  width: 100%;
+  min-height: 3.5rem; /* keeps pill thickness without clipping */
+  border-radius: 50px;
+  background: var(--secondary-color); /* your mint pill */
+  color: var(--base-color); /* readable on mint */
+  text-decoration: none;
+  padding: 1.5rem 2rem; /* keeps your existing text sizes comfy */
+  position: relative;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+a.experience-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1.25rem 2rem rgba(0, 0, 0, 0.18);
+}
+a.experience-box:focus-visible {
+  outline: 2px solid var(--base-border);
+  outline-offset: 4px;
+}
+
+/* Titles/meta (keep your font sizes) */
+.experience-role {
+  font-size: 1.2rem;
+  line-height: 1.2;
+  margin: 0 0 0.25rem;
+  font-weight: 700;
+  font-family: "IBM Plex Mono", monospace;
+}
+.experience-meta {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+/* Duration badge (top-right inside the pill) */
+.dur {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 800;
+  font-size: 1.5rem;
+  opacity: 0.9;
+}
+
+/* STEP OFFSETS (desktop)
+   Distance between pills preserved via translateX + margin-top */
+.exp-box-one {
+  width: 30rem;
+  transform: translateX(70rem);
+}
+.exp-box-two {
+  width: 40rem;
+  transform: translateX(45rem);
+}
+.exp-box-three {
+  width: 50rem;
+  transform: translateX(30rem);
+}
+.exp-box-four {
+  width: 30rem;
+  transform: translateX(20rem);
+}
+.exp-box-five {
+  width: 20rem;
+  transform: translateX(10rem);
+}
+
+/* Each wrapper positioned to honor z-index stacking */
+.exp-box-one,
+.exp-box-two,
+.exp-box-three,
+.exp-box-four,
+.exp-box-five {
+  position: relative;
+}
+
+/* Tight vertical rhythm between rows */
+.section-experience .row {
+  margin-bottom: 1rem;
+}
+
+/* RESPONSIVE: stack nicely on small screens */
+@media (max-width: 900px) {
+  .exp-box-one,
+  .exp-box-two,
+  .exp-box-three,
+  .exp-box-four,
+  .exp-box-five {
+    transform: none;
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+  .section-experience .row [class^="col-"] {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+/* ===== Modal overlay & dialog (consolidated) ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.25); /* dim */
+  backdrop-filter: blur(6px); /* blur page behind */
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 1000;
+}
+.modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-dialog {
+  width: min(680px, 92vw);
+  max-height: 80vh;
+  height: 20rem;
+  overflow: auto;
+  background: var(--base-variant);
+  color: var(--base-text);
+  /* border: 1px solid var(--base-border); */
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.35);
+  transform: translateY(10px) scale(0.98);
+  transition: transform 0.25s ease;
+  position: relative;
+}
+.modal.is-open .modal-dialog {
+  transform: translateY(0) scale(1);
+}
+
+.modal-title {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(1.1rem, 1rem + 0.6vw, 1.5rem);
+  margin: 0 0 0.75rem;
+}
+.modal-subtitle {
+  font-size: 1.8rem;
+  font-family: "Dawning of a New Day", cursive;
+  font-weight: 1000;
+  margin: 0 0 0.5rem;
+  opacity: 0.9;
+}
+.modal-body {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.4rem;
+}
+.modal-body li {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  /* border: 1px solid var(--base-border); */
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 800;
+  font-size: 1.5rem;
+  /* background: var(--base-color, #fff); */
+  color: var(--base-text);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.modal-close:hover {
+  transform: scale(1.2);
+}
+
+/* Prevent background scroll while open */
+.modal-open {
+  overflow: hidden;
+}
+
+/* --------------- STORY ---------------- */
+
+.story-one {
+  background: var(--base-color);
+}
+
+.story {
+  background: var(--base-color);
+}
+
+#s-b-t {
+  text-align: end;
+}
+
+#s-b-t-2 {
+  font-style: italic;
+}
+
+.story-box {
+  height: 15rem;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+  width: 45%;
+}
+
+.story-box-text {
+  display: block;
+  color: var(--base-text);
+  font-size: clamp(1rem, 0.8852rem + 0.4898vw, 1.275rem);
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* --------------- HOBBIES ---------------- */
+
+.hobbies {
+  background: var(--base-color);
+  display: flex;
+  justify-content: center;
+  padding-top: 8rem;
+  padding-bottom: 6rem;
+}
+
+.interest-box {
+  background: var(--base-variant);
+  border-radius: 70px;
+  width: 92%;
+  padding: 3rem 3rem; /* inner padding instead of fixed heights/margins */
+  margin-top: 4rem;
+}
+
+/* Two columns on desktop; stacks on small screens */
+.interest-grid {
+  display: grid;
+  height: 47.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem 3rem; /* row gap | column gap */
+  align-items: start; /* keeps headings aligned across the row */
+}
+
+/* Each item stacks: number (line 1), title (line 2), paragraph (line 3) */
+.numb-item-one,
+.numb-item-two,
+.numb-item-three,
+.numb-item-four {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.numb-item-one,
+.numb-item-two {
+  padding-top: 3.3rem;
+}
+
+.numb-item-one,
+.numb-item-three {
+  padding-left: 9rem;
+}
+
+.numb-item-two,
+.numb-item-four {
+  padding-right: 10rem;
+}
+
+/* Number line */
+.numb {
+  font-family: "Purple purse", serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: var(--base-border);
+  line-height: 1;
+  margin-bottom: 1.2rem;
+}
+
+/* Title line (separate line from number) */
+.int-head {
+  font-family: "Purple purse", serif;
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+/* Paragraph line */
+.numb-text {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* Responsive: single column */
+@media (max-width: 880px) {
+  .interest-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-img {
+  background: var(--base-color);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 50rem;
+}
+
+.abt-img-box-one,
+.abt-img-box-two {
+  height: 30rem;
+  width: 100%;
+}
+.abt-img-box-one img {
+  margin-left: 0;
+  /* padding-right: -10%; */
+}
+
+.abt-img-box-two img {
+  margin-left: 0;
+}
+
+.abt-img-box-one img,
+.abt-img-box-two img {
+  height: 30rem;
+  border-radius: 20px;
+}
+
+.abt-img-box-one img {
+  width: 100%;
+}
+
+.abt-img-box-two img {
+  width: 100%;
+}
+
+/* --------------- PLAY / BOOKS / FUN ----------------- */
+
+.book-tog {
+  background: var(--base-color); /* main bg */
+  display: flex;
+  justify-content: center; /* center the pill */
+  padding: 1.5rem 0; /* comfy vertical space */
+  padding-top: 4rem;
+}
+
+.book-tog-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.375rem; /* pill padding */
+  display: inline-flex;
+  gap: 0.5rem;
+  background: var(--secondary-color); /* pill background */
+  border-radius: 999px;
+  align-items: center;
+}
+
+.book-tog-item {
+  margin: 0;
+}
+
+/* Inactive links: readable on the secondary-colored pill */
+.book-tog-link {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--secondary-text); /* <-- key change */
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: background-color 0.2s var(--transition-bounce),
+    color 0.2s var(--transition-bounce), transform 0.2s var(--transition-bounce);
+}
+
+.book-tog-link:hover {
+  transform: translateY(-1px);
+}
+
+/* Active: inverted chip (dark bg + mint text) */
+.book-tog-link.is-active,
+.book-tog-link[aria-selected="true"] {
+  background: var(--base-color);
+  color: var(--base-text);
+}
+
+/* --- Book list (same rhythm/sizing as notes) --- */
+.book-list {
+  list-style: none;
+  margin: 1.5rem auto 0;
+  padding: 0;
+  width: min(900px, 92%); /* same max width style as notes */
+  display: grid;
+  gap: 1.25rem; /* spacing between boxes */
+  padding-top: 4rem;
+}
+.cont {
+  background: var(--base-color);
+  margin-top: -2rem;
+  padding-bottom: 10rem;
+}
+#book-content {
+  background: var(--base-color);
+}
+
+/* Box (book card) */
+.book-card {
+  display: grid;
+  grid-template-columns: 88px 1fr; /* left cover, right text */
+  gap: 1.25rem;
+  align-items: center;
+
+  background: var(--base-variant);
+  /* border: 1px solid var(--base-border); */
+  border-radius: 10px; /* same radius vibe as notes */
+  color: var(--base-text);
+  padding: 1rem 1.25rem;
+  transition: transform 0.2s var(--transition-bounce),
+    box-shadow 0.2s var(--transition-bounce);
+}
+.book-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
+}
+
+/* Cover image (left) */
+.book-cover {
+  width: 88px;
+  height: 112px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: var(--base-border); /* nice placeholder color if no image */
+}
+
+/* Right content block */
+.book-info {
+  display: grid;
+  gap: 0.35rem;
+}
+
+/* Title / meta */
+.book-title {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  font-size: clamp(1rem, 0.96rem + 0.35vw, 1.25rem);
+  line-height: 1.3;
+}
+.book-author,
+.book-note {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.98rem;
+}
+
+/* Ratings */
+.book-rating {
+  margin-top: 0.25rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+}
+.book-rating .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Responsive: tighter cards on small screens */
+@media (max-width: 520px) {
+  .book-card {
+    grid-template-columns: 72px 1fr;
+    border-radius: 28px;
+    padding: 0.85rem 1rem;
+  }
+  .book-cover {
+    width: 72px;
+    height: 96px;
+    border-radius: 12px;
+  }
+}
+
+/* --------------- NOTES ----------------- */
+
+.notes-box {
+  padding-top: 15%;
+  background: var(--base-color);
+  display: flex;
+  justify-content: center; /* Centers items horizontally */
+  align-items: center;
+}
+
+.notes-box-text {
+  display: block;
+  color: var(--base-text);
+  font-size: clamp(1rem, 0.8852rem + 0.4898vw, 1.275rem);
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  text-align: center;
+  width: 30%;
+}
+/* Section container */
+.notes-section {
+  background: var(--base-color);
+  padding: 6rem 0;
+}
+
+/* Center the list */
+.notes-list-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Vertical stack of cards */
+.notes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: min(900px, 92%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* space between cards */
+}
+
+/* Each <li> wrapper (kept from your markup) */
+.notes-items {
+  margin: 0;
+}
+
+/* Clickable card */
+.notes-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  height: 10rem;
+  text-decoration: none;
+  color: var(--base-text);
+
+  background: var(--base-variant);
+  border-radius: 10px;
+
+  padding: 1.25rem 1.75rem;
+  transition: transform 0.2s var(--transition-bounce),
+    box-shadow 0.2s var(--transition-bounce), background-color 0.2s ease;
+}
+
+/* Hover/active polish */
+.notes-card:hover {
+  transform: translateY(-2px);
+  background: var(--base-hover);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
+}
+
+.notes-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--base-border), 0 1rem 2rem rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+}
+
+/* Left block: title + meta */
+.notes-left {
+  display: grid;
+  gap: 0.35rem;
+}
+
+/* Title */
+.notes-title {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(1rem, 0.96rem + 0.35vw, 1.25rem);
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--base-text);
+}
+
+/* Date / read time */
+.notes-meta {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* Right arrow */
+.notes-arrow {
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 0.2s var(--transition-bounce);
+}
+.notes-card:hover .notes-arrow {
+  transform: translateX(4px);
+}
+
+/*  */
+
+/* Bigger, roomier dialog ONLY for Notes */
+#note-modal .modal-dialog {
+  height: 95vh;
+  width: 90%; /* wider */
+  max-height: 95vh;
+  padding: 2rem 2.25rem; /* more breathing room */
+  border-radius: 10px; /* softer corners */
+}
+
+/* Typography & layout inside */
+#note-modal .modal-title {
+  font-size: clamp(1.3rem, 1.1rem + 1vw, 1.8rem);
+  margin-bottom: 0.5rem;
+}
+
+#note-modal .modal-subtitle {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 1rem;
+}
+
+#note-modal .modal-body {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  display: block;
+  max-width: 70ch; /* comfortable reading width */
+  margin: 0.25rem auto 0; /* center the content block */
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  #note-modal .modal-dialog {
+    width: 94vw;
+    padding: 1.25rem 1rem;
+    border-radius: 24px;
+  }
+  #note-modal .modal-body {
+    max-width: none;
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .notes-card {
+    padding: 1rem 1.25rem;
+    border-radius: 28px;
+  }
+  .notes-arrow {
+    font-size: 1.25rem;
+  }
+}
+
+/* ----------------- DSA ------------------ */
+
+.dsa-section {
+  background: var(--base-color);
+  height: 305vh;
+  /* width: 100%; */
+  padding-top: 5rem;
+}
+
+.dsa-img-box {
+  display: grid;
+  place-items: center;
+}
+
+.con-img-box {
+  display: grid;
+  place-items: center;
+}
+
+.con-img {
+  height: 12rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
+  /* border-radius: 10px; */
+}
+
+.dsa-img {
+  height: 45rem;
+  border-radius: 15px;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5);
+}
+
+.dsa-text-box {
+  max-width: 80ch; /* optional: nice reading width */
+  margin: 4rem auto 2rem;
+  text-align: center; /* remove if you want the text left-aligned */
+}
+
+.dsa-head {
+  display: block;
+  color: var(--base-text);
+  font-size: 2.3rem;
+  letter-spacing: 1px;
+  font-family: "Purple purse", serif;
+  font-weight: 800;
+  text-align: left;
+  padding-bottom: 2rem;
+}
+
+.dsa-box-para {
+  display: block;
+  color: var(--base-text);
+  font-size: clamp(1rem, 0.8852rem + 0.4898vw, 1.275rem);
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  text-align: justify;
+  /* width: 30%; */
+}
+
+.leetlink {
+  text-decoration: none;
+  color: var(--base-text);
+  text-decoration: underline;
+}
+
+/* --------------- PROJECTS---------------- */
+
+.projects-section {
+  background: var(--base-color);
+  height: 325vh;
+  /* width: 100%;
+  text-align: center; */
+  padding-top: 5rem;
+}
+
+/* Gallery wrapper */
+.prj-gallery {
+  background: var(--base-color);
+  padding-left: 12%;
+  /* padding-right: 5%; */
+  padding-bottom: 10rem;
+}
+
+/* 2-up grid */
+.prj-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4rem;
+  align-items: center;
+  width: 80rem;
+  z-index: 2;
+}
+
+/* Optional per-card tweaks */
+#prj-one {
+  /* e.g., custom offsets if needed */
+}
+#prj-two {
+}
+
+/* Each card link is a clipped hover surface */
+.prj-gallery a {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 60px;
+}
+
+/* Image: center-crop & smooth zoom from center */
+.prj-gallery [id="prj-img"] {
+  display: block;
+  width: 100%;
+  height: 35rem;
+  object-fit: cover;
+  object-position: center;
+  /* transform-origin: center; */
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 60px;
+  z-index: 1;
+}
+
+/* Hover: subtle zoom + blur + dim */
+.prj-gallery a:hover [id="prj-img"] {
+  transform: scale(1.05);
+  filter: blur(4px) brightness(0.3);
+}
+
+/* Centered overlay label from data-title */
+.prj-gallery a::after {
+  content: attr(data-title);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  /* padding: 0 1rem; */
+  color: #efeee8;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(1.25rem, 1rem + 1.2vw, 2rem);
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.prj-gallery a:hover::after {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+/* Stack on small screens */
+@media (max-width: 820px) {
+  .prj-grid {
+    grid-template-columns: 1fr;
+  }
+  .prj-gallery [id="prj-img"] {
+    height: 22rem;
+  }
+}
+
+/* ------------------ AI ------------------ */
+
+.ai-section {
+  background: var(--base-color);
+  height: 360vh;
+  /* width: 100%; */
+  padding-top: 5rem;
+}
+
+/* --------------- FOOTER ----------------- */
+
+.footer {
+  background-color: var(--base-color);
+  height: 60vh;
+  padding: 4rem 0;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.footer__navigation {
+  display: flex;
+  float: right;
+}
+
+.footer__navigation-two {
+  float: left;
+}
+
+.footer__list {
+  list-style: none;
+  float: right;
+}
+
+.footer__item,
+.footer__item-clock {
+  padding-bottom: 1.5rem;
+}
+
+.footer__item-clock {
+  padding: 6px 16px;
+  background-color: var(--base-variant);
+  border-radius: 25px;
+  /* margin-top: 5%; */
+  margin-left: -8%;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+}
+
+.clock-box {
+  text-align: center;
+}
+
+.clock24 {
+  font-size: 1.2rem;
+  font-family: "Purple Purse", serif;
+  color: var(--base-text);
+}
+
+.footer__link:link,
+.footer__link:visited {
+  text-decoration: none;
+  color: var(--base-text);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.quote-box {
+  margin-left: 10rem;
+  margin-right: -1rem;
+}
+
+.quote,
+.quote-two {
+  font-family: "Yantramanav", serif;
+  color: var(--base-text);
+  font-weight: 400;
+  font-size: clamp(3.2rem, 0.5692rem + 3.238vw, 8.75rem);
+}
+
+.quote-two {
+  margin-left: 6rem;
+}
+
+.quote-icon {
+  margin-top: -8%;
+  margin-left: 1rem;
+  float: right;
+}
+
+.fa-solid {
+  font-weight: 500;
+  color: var(--base-text);
+  font-size: 7rem;
+}
+
+.quote-source {
+  float: right;
+  font-style: italic;
+  margin-right: 2%;
+}
+
+.meaning {
+  float: right;
+  font-size: 1.28rem;
+  font-weight: 600;
+  margin-top: 3%;
+}
+
+/* Quote rotator */
+.quote-box {
+  position: relative;
+  overflow: hidden; /* hide sliding text edges */
+}
+
+.quote-box .quote,
+.quote-box .quote-two,
+.quote-box .quote-source,
+.quote-box .meaning {
+  will-change: transform, opacity;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+/* animate current text out */
+.quote-box.is-out .quote,
+.quote-box.is-out .quote-two,
+.quote-box.is-out .quote-source,
+.quote-box.is-out .meaning {
+  transform: translateY(12px);
+  opacity: 0;
+}
+
+/* prepare next text just above, invisible */
+.quote-box.is-enter .quote,
+.quote-box.is-enter .quote-two,
+.quote-box.is-enter .quote-source,
+.quote-box.is-enter .meaning {
+  transform: translateY(-12px);
+  opacity: 0;
+}
+
+.copy {
+  background-color: var(--base-color);
+  text-align: center;
+  margin-top: -2%;
+}
+
+.copyright {
+  font-family: "Purple Purse", serif;
+}
+
+/* ---------------------------------------------------------------------------- */
+
+/* visible by default */
+.text-box {
+  display: block;
+}
+
+/* Hide the homepage hero textbox on internal routes */
+.is-internal .text-box {
+  display: none;
+}
+
+/* Collapse the hero area on internal pages */
+.is-internal .header {
+  height: 120px; /* pick what you want: 100–160px works well */
+}
+
+/* (Optional) when internal, ensure no hero leftovers render */
+.is-internal .text-box {
+  display: none;
+}
+
+/* ---------------------------------------- MEDIA QUERIES ---------------------------------------------------- */
+
+
+
+/* ---------------------------------------------------------------------------------------------------------------- */
+
+/* 32" (≈ 2560px and up) */
+@media (min-width: 2560px) {
+  /* Example (uncomment if needed):
+  .container, .row { max-width: 1400px; margin-inline: auto; }
+  */
+}
+
+/* 28" (≈ 2300–2559px) */
+@media (max-width: 2559px) and (min-width: 2300px) {
+  /* Example:
+  .container, .row { max-width: 1280px; margin-inline: auto; }
+  */
+}
+
+/* 24" (≤ 1920px) */
+@media (max-width: 1920px) {
+  /* Example:
+  nav { left: 50%; transform: translateX(-50%); width: 70%; }
+  */
+}
+
+/* 18–19" (≤ 1600px) */
+@media (max-width: 1600px) {
+  /* Example:
+  .dsa-img { height: 40rem; }   /* reduce very tall images slightly */
+  */
+}
+
+/* 14–15" laptops (≤ 1366px) */
+@media (max-width: 1366px) {
+  /* Example:
+  .header { height: 68vh; }     /* tighten hero height */
+  .text-box { /* top: 52%; */ } /* adjust hero text position if needed */
+  */
+}
+
+/* Tablets (≤ 1024px) */
+@media (max-width: 1024px) {
+  /* Example stacking:
+  .row [class^="col-"] { width: 100% !important; margin-right: 0 !important; }
+  */
+  /* Example single-column projects:
+  .prj-grid { grid-template-columns: 1fr; width: min(700px, 92%); margin-inline: auto; }
+  .prj-gallery [id="prj-img"] { height: 26rem; }
+  */
+  /* Example experience step pattern flatten:
+  .exp-box-one, .exp-box-two, .exp-box-three, .exp-box-four, .exp-box-five { transform: none; width: 100%; }
+  */
+}
+
+/* Mobiles (≤ 768px) */
+@media (max-width: 768px) {
+  /* Example nav fit:
+  nav { width: 94%; left: 50%; transform: translateX(-50%); }
+  */
+  /* Example images:
+  .prj-gallery [id="prj-img"] { height: 22rem; }
+  .dsa-img { height: 28rem; }
+  */
+  /* Example text widths:
+  .notes-box-text, .story-box, .dsa-text-box { width: 90%; margin-inline: auto; }
+  */
+}
+
+/* Small mobiles (≤ 480px) */
+@media (max-width: 480px) {
+  /* Example tighter paddings:
+  .main-nav-link { font-size: 1rem; padding: 6px 12px; }
+  */
+  /* Example cards:
+  .book-card { grid-template-columns: 64px 1fr; padding: .75rem .9rem; }
+  .book-cover { width: 64px; height: 86px; }
+  */
+  /* Example project images:
+  .prj-gallery [id="prj-img"] { height: 18rem; border-radius: 40px; }
+  .prj-gallery a { border-radius: 40px; }
+  */
+}

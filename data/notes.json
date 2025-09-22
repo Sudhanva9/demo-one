@@ -1,0 +1,56 @@
+[
+  {
+    "id": "css-for-kicks",
+    "title": "CSS for Kicks",
+    "meta": "Jun 2025 · CSS",
+    "excerpt": "Practical CSS patterns I reach for first.",
+    "blocks": [
+      { "type": "h2", "text": "Why another CSS note?" },
+      { "type": "p",  "html": "Because <strong>defaults matter</strong>. Small, reusable patterns remove friction and make teams faster." },
+
+      { "type": "h3", "text": "Layout" },
+      { "type": "p",  "html": "Start with a single container and <code>gap</code> everywhere. Grid for macro, flex for micro." },
+      { "type": "code", "lang": "css", "text": ".stack { display:grid; gap:1rem; }\n.row { display:flex; gap:.75rem; align-items:center; }" },
+
+      { "type": "h3", "text": "Spacing rhythm" },
+      { "type": "list", "style": "ul", "items": [
+        "Use <code>rem</code> for scale, <code>em</code> for local tweaks.",
+        "Prefer <code>gap</code> over margins between siblings.",
+        "Pick 1–2 radii and 1 shadow scale site-wide."
+      ]},
+
+      { "type": "img", "src": "/img/notes/css-scale.png", "alt": "Spacing scale example", "caption": "A simple 1.25× scale is enough.", "width": 1100 },
+
+      { "type": "h3", "text": "Typography" },
+      { "type": "p",  "html": "Clamp early. Keep line-length near 60–75ch for body copy." },
+      { "type": "code", "lang": "css", "text": "body { font-size: clamp(16px, 1.6vw, 18px); }\n.copy { max-width: 70ch; line-height: 1.6; }" },
+
+      { "type": "quote", "text": "Make the right thing easy; the wrong thing hard.", "cite": "Design proverb" },
+
+      { "type": "h3", "text": "Buttons without pain" },
+      { "type": "p",  "html": "One base, 2 variants. No custom colors per page." },
+      { "type": "code", "lang": "css", "text": ".btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1rem;border-radius:999px}\n.btn--ghost{background:transparent;border:1px solid var(--base-border)}\n.btn--solid{background:var(--secondary-color);color:var(--base-text)}" },
+
+      { "type": "hr" },
+
+      { "type": "p", "html": "That’s the kit. Small, consistent, boring—in the best way." }
+    ]
+  },
+
+  {
+    "id": "debug-logs-that-matter",
+    "title": "Debug logs that matter",
+    "meta": "May 2025 · Engineering",
+    "excerpt": "Logs should explain decisions, not just events.",
+    "blocks": [
+      { "type": "h2", "text": "Intent, inputs, outcome" },
+      { "type": "p",  "html": "Write logs that capture <em>why</em>, the key <em>inputs</em>, and the resulting <em>outcome</em>. Anything else is noise." },
+      { "type": "list", "style": "ol", "items": [
+        "State the decision and context.",
+        "Include identifiers and counts (not entire payloads).",
+        "Add timing and status; link to traces."
+      ]},
+      { "type": "img", "src": "/img/notes/logs-sample.png", "alt": "Structured log example", "caption": "A tidy, structured log with useful fields." }
+    ]
+  }
+]

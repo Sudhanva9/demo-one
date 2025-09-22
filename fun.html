@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sudhanva Bhattar • Fun</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main id="app">
+      <div class="new-text-box">
+        <h1 class="heading">
+          <span class="heading-about"> Books. </span>
+        </h1>
+      </div>
+      <div class="notes-box">
+        <p class="notes-box-text">
+          A collection of books that I read, & also recommend. If you're a fan
+          of action & thriller genres, well, strap in!
+        </p>
+      </div>
+
+      <div class="book-tog" role="tablist" aria-label="Book options">
+        <ul class="book-tog-list">
+          <li class="book-tog-item">
+            <a class="book-tog-link" href="?tab=read" role="tab">Read-21</a>
+          </li>
+          <li class="book-tog-item">
+            <a class="book-tog-link" href="?tab=wishlist" role="tab"
+              >Wishlist-7
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Content gets rendered here -->
+      <section class="cont">
+        <div id="book-content">
+          <ul class="book-list">
+            <li>
+              <article class="book-card">
+                <img
+                  class="book-cover"
+                  src="img/nat-1.jpg"
+                  alt="Clean Code book cover"
+                  loading="lazy"
+                />
+                <div class="book-info">
+                  <h4 class="book-title">Clean Code</h4>
+                  <p class="book-author">by Robert C. Martin</p>
+                  <p class="book-note">
+                    Timeless refactoring habits for readable, maintainable code.
+                  </p>
+                  <div class="book-rating">
+                    ★★★★½
+                    <span class="sr-only">Rating: 4.5 out of 5</span>
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <li>
+              <article class="book-card">
+                <img
+                  class="book-cover"
+                  src="img/nat-2.jpg"
+                  alt="Designing Data-Intensive Applications book cover"
+                  loading="lazy"
+                />
+                <div class="book-info">
+                  <h4 class="book-title">
+                    Designing Data-Intensive Applications
+                  </h4>
+                  <p class="book-author">by Martin Kleppmann</p>
+                  <p class="book-note">
+                    Foundations of modern data systems—from storage to streams.
+                  </p>
+                  <div class="book-rating">
+                    ★★★★★
+                    <span class="sr-only">Rating: 5 out of 5</span>
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <li>
+              <article class="book-card">
+                <img
+                  class="book-cover"
+                  src="img/nat-3.jpg"
+                  alt="The Pragmatic Programmer book cover"
+                  loading="lazy"
+                />
+                <div class="book-info">
+                  <h4 class="book-title">The Pragmatic Programmer</h4>
+                  <p class="book-author">by Andrew Hunt &amp; David Thomas</p>
+                  <p class="book-note">
+                    Practical tips on craftsmanship, communication, and growth.
+                  </p>
+                  <div class="book-rating">
+                    ★★★★☆
+                    <span class="sr-only">Rating: 4 out of 5</span>
+                  </div>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- Optional: include scripts if you want a hard refresh on about.html to still work -->
+    <script src="app.js"></script>
+    <script src="lightmode.js" defer></script>
+  </body>
+</html>
