@@ -462,11 +462,22 @@ const EXP_DATA = {
     if (footer) footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
-  // Treat "/", "", and "/index.html" as home
-  const isHomePath = (pathname) => {
-    const p = pathname.replace(/\/+$/, '');
-    return p === '' || p === '/' || /\/index\.html$/.test(p);
+ // Treat the project subpath (e.g., /demo-one) as home too
+  const getBasePath = () => {
+    // "/demo-one/about.html" -> ["", "demo-one", "about.html"] -> "/demo-one"
+    const seg = location.pathname.split('/')[1] || '';
+    return seg ? `/${seg}` : ''; // "" on root sites, "/demo-one" on project sites
   };
+
+  const isHomePath = (pathname) => {
+    const base = getBasePath();                 // "" or "/demo-one"
+    let p = (pathname || '/').replace(/\/+$/, ''); // strip trailing "/"
+    // Normalize /index.html → "" to compare
+    if (p.endsWith('/index.html')) p = p.slice(0, -'/index.html'.length);
+    // Home if: "" or "/" or "/demo-one"
+    return p === '' || p === '/' || (base && p === base);
+  };
+
 
   const setRouteClass = (pathname) => {
     document.body.classList.toggle('is-internal', !isHomePath(pathname));
@@ -813,7 +824,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ===== NOTES: load from /data/notes.json and render into #note-modal ===== */
 (() => {
-  const NOTES_JSON_URL = '/data/notes.json'; // adjust path if your folder differs
+  const NOTES_JSON_URL = 'data/notes.json'; // adjust path if your folder differs
   let NOTES_CACHE = null;
   let lastTrigger = null;
 
