@@ -481,17 +481,27 @@ const EXP_DATA = {
 
   // -------------------- ACTIVE NAV HIGHLIGHT --------------------
   const navLinks = Array.from(document.querySelectorAll('a.main-nav-link[data-link]'));
+
+  const norm = (p) => {
+    if (!p) return '/';
+    // strip trailing slashes
+    p = p.replace(/\/+$/, '');
+    // treat /index.html as /
+    if (p.endsWith('/index.html')) p = p.slice(0, -'/index.html'.length) || '/';
+    return p || '/';
+  };
+
   const setActiveLink = (pathname) => {
-    const current = pathname.replace(/\/+$/, '') || '/';
+    const current = norm(new URL(location.href).pathname);
     navLinks.forEach((a) => {
       const href = a.getAttribute('href') || '';
-      if (href.startsWith('#')) return a.classList.remove('nav-active');
-
-      const linkPath = new URL(href, location.origin).pathname.replace(/\/+$/, '') || '/';
-      const isActive =
-        (isHomePath(current) && isHomePath(linkPath)) ||
-        (!isHomePath(current) && current === linkPath);
-
+      if (href.startsWith('#')) {
+        a.classList.remove('nav-active');
+        return;
+      }
+      // IMPORTANT: resolve relative to location.href (not location.origin)
+      const linkPath = norm(new URL(href, location.href).pathname);
+      const isActive = current === linkPath || (current === '/' && linkPath === '/');
       a.classList.toggle('nav-active', isActive);
     });
   };

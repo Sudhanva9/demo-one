@@ -1776,7 +1776,7 @@ a.experience-box:focus-visible {
   font-family: "Yantramanav", serif;
   color: var(--base-text);
   font-weight: 400;
-  font-size: clamp(3.2rem, 0.5692rem + 3.238vw, 8.75rem);
+  font-size: clamp(2.2rem, 0.5692rem + 3.238vw, 8.75rem);
 }
 
 .quote-two {
