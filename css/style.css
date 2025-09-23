@@ -21,7 +21,6 @@ hsla(36, 31%, 90%, 1)
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   /* cursor: url(../img/ambblack.png), none !important; */
 }
 
@@ -32,6 +31,7 @@ hsla(36, 31%, 90%, 1)
 
 html {
   scroll-behavior: smooth;
+  background: var(--base-color);
 }
 
 :root {
@@ -83,6 +83,36 @@ button {
 /* Optional: Hover Effect */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--scroll-bar); /* Lighter color on hover */
+}
+
+:root {
+  --nav-w: 34%;
+  --h-feature: auto;
+  --h-ai: auto;
+  --h-dsa: auto;
+  --h-prj: auto;
+}
+
+nav.main-nav,
+#main-nav {
+  width: var(--nav-w);
+}
+
+section.section-feature,
+.section-feature {
+  min-height: var(--h-feature);
+}
+section.ai-section,
+.ai-section {
+  min-height: var(--h-ai);
+}
+section.dsa-section,
+.dsa-section {
+  min-height: var(--h-dsa);
+}
+section.projects-section,
+.projects-section {
+  min-height: var(--h-prj);
 }
 
 /* ----------------------------- ROW-COLUMNS----------------------- */
@@ -235,7 +265,7 @@ nav {
   top: 0;
   /* left: 33%; */
   height: 3.5rem;
-  width: 34%;
+  /* width: 34%; */
   font-family: "IBM Plex Mono", monospace;
   position: fixed;
   z-index: 1000;
@@ -599,7 +629,7 @@ body:not(.light-mode) .icon-dark {
 
 .section-feature {
   background-color: var(--base-color);
-  height: 150vh;
+  /* height: 150vh; */
   /* padding: 4rem 0; */
 }
 
@@ -1535,9 +1565,10 @@ a.experience-box:focus-visible {
 
 .dsa-section {
   background: var(--base-color);
-  height: 305vh;
+  /* height: 305vh; */
   /* width: 100%; */
   padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .dsa-img-box {
@@ -1610,7 +1641,7 @@ a.experience-box:focus-visible {
 
 .projects-section {
   background: var(--base-color);
-  height: 325vh;
+  /* height: 325vh; */
   /* width: 100%;
   text-align: center; */
   padding-top: 5rem;
@@ -1619,8 +1650,9 @@ a.experience-box:focus-visible {
 /* Gallery wrapper */
 .prj-gallery {
   background: var(--base-color);
+  margin-top: -2%;
   padding-left: 12%;
-  /* padding-right: 5%; */
+  padding-top: 5%;
   padding-bottom: 10rem;
 }
 
@@ -1650,7 +1682,7 @@ a.experience-box:focus-visible {
 }
 
 /* Image: center-crop & smooth zoom from center */
-.prj-gallery [id="prj-img"] {
+.prj-img {
   display: block;
   width: 100%;
   height: 35rem;
@@ -1705,9 +1737,10 @@ a.experience-box:focus-visible {
 
 .ai-section {
   background: var(--base-color);
-  height: 360vh;
+  /* height: 360vh; */
   /* width: 100%; */
   padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 /* --------------- FOOTER ----------------- */

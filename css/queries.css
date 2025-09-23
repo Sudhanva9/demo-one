@@ -1,475 +1,40 @@
-/* ================================
-   MacBook Pro 15" (1440 × 900)
+/* (1) ===============================
+   MacBook Pro 15" (1728 × 958)
    Fix: nav pill width/centering + footer hairline
 ================================== */
 @media (max-width: 1728px) and (max-height: 958px) {
-  #main-nav {
-    top: 0rem;
-    width: 32.5%;
+  :root {
+    --nav-w: 32.5%;
+    --h-ai: 340vh;
+    --h-dsa: 290vh;
+    --h-feature: 145vh;
+    --h-prj: 300vh;
   }
 
+  /* .section-feature {
+    height: 145vh;
+  }
   .ai-section {
     height: 340vh;
   }
-
-  section.dsa-section {
+  .dsa-section {
     height: 290vh;
   }
-
-  section.section-feature {
-    height: 145vh;
-  }
-
-  section.projects-section {
+  .projects-section {
     height: 310vh;
-  }
+  } */
 }
 
-/* ================================
-   MacBook Pro 15" (1440 × 900)
-   Fix: nav pill width/centering + footer hairline
-================================== */
-@media (max-width: 1440px) and (max-height: 932px) {
-  /* Fix thin white bar at very top on some browsers */
-  html,
-  body {
-    background: var(--base-color);
-  }
-  body {
-    margin: 0;
-  }
-
-  /* ---------- NAV (keep centered/positioned, just smaller) ---------- */
-  #main-nav {
-    top: 0rem;
-    width: 39%;
-  }
-
-  /* ---------- SECTION RULES / LINES BETWEEN AREAS ---------- */
-  /* Use any that apply in your codebase */
-  hr.section-rule,
-  .section-line,
-  .rule,
-  .divider {
-    height: 1px;
-    border: 0;
-    background: var(--base-border);
-    opacity: 0.55;
-    width: min(1200px, 92%);
-    margin: 2.25rem auto;
-  }
-
-  .feature-box,
-  .feature-box-two,
-  .feature-box-three,
-  .feature-box-four {
-    height: 30rem;
-  }
-
-  /* ---------- FOOTER ---------- */
-
-  .quote-box {
-    margin-left: 6rem;
-    margin-right: -1rem;
-  }
-
-  .quote,
-  .quote-two {
-    font-size: 3.3rem;
-  }
-
-  .quote {
-    margin-left: 1rem;
-  }
-
-  .quote-two {
-    margin-left: 0rem;
-  }
-
-  .quote-icon {
-    margin-top: -6%;
-    margin-left: 1rem;
-    float: right;
-  }
-
-  .fa-solid {
-    font-weight: 500;
-    color: var(--base-text);
-    font-size: 5rem;
-  }
-
-  .footer__item-clock {
-    padding: 6px 16px;
-    width: 13rem;
-  }
-
-  .site-footer .footer-grid {
-    gap: 1rem 2rem;
-  }
-  footer h4,
-  .site-footer h4 {
-    font-size: 1.05rem;
-  }
-  footer a,
-  .site-footer a {
-    font-size: 0.98rem;
-  }
-
-  /* ---------- ABOUT ---------- */
-
-  .img-about-box {
-    margin-top: 20rem;
-    margin-left: 14rem;
-    height: 30rem;
-    width: 22rem;
-  }
-
-  .img-about-box img {
-    width: auto;
-    height: 30rem;
-  }
-
-  .about-box {
-    margin-top: 35%;
-    margin-left: -2rem;
-  }
-
-  /* EXPERIENCE */
-
-  .exp-box-one {
-    width: 30rem;
-    transform: translateX(52rem);
-  }
-  .exp-box-two {
-    width: 40rem;
-    transform: translateX(34rem);
-  }
-  .exp-box-three {
-    width: 45rem;
-    transform: translateX(22rem);
-  }
-  .exp-box-four {
-    width: 30rem;
-    transform: translateX(14rem);
-  }
-  .exp-box-five {
-    width: 22rem;
-    transform: translateX(6rem);
-  }
-
-  .story-box {
-    width: 50%;
-  }
-
-  /* HOBBIES */
-
-  .hobbies {
-    padding-top: 6rem;
-    /* padding-bottom: 6rem; */
-  }
-
-  .numb-text {
-    font-size: 1.1rem;
-  }
-
-  .about-box {
-    margin-left: 0;
-  }
-
-  .about-box-text,
-  .story-box-text {
-    font-size: 1.2rem;
-  }
-
-  .notes-box-text {
-    padding-top: 2rem;
-    font-size: 1.1rem;
-    width: 32%;
-  }
-
-  .feature-box__text {
-    padding: 1rem 1rem;
-  }
-
-  .heading-tertiary {
-    top: 14%;
-    right: 11%;
-  }
-
-  .heading-tertiary-two {
-    top: 14%;
-    right: 7%;
-  }
-
-  .heading-primary-sub-two {
-    font-size: 1.1rem;
-  }
-
-  .section-feature {
-    height: 135vh;
-  }
-
-  /* .ai-section {
-    height: 320vh;
-  } */
-
-  section.ai-section {
-    height: 325vh;
-  }
-
-  .ai-img {
-    height: 22rem;
-  }
-
-  .con-img-box img {
-    height: 12rem;
-  }
-
-  /* .dsa-section {
-  } */
-
-  section.dsa-section {
-    height: 275vh;
-  }
-
-  section.section-feature {
-    height: 135vh;
-  }
-
-  /* .dsa-text-box {
-    padding-bottom: 30rem;
-  } */
-
-  section.projects-section {
-    height: 310vh;
-  }
-
-  .dsa-img {
-    height: 40rem;
-    width: auto;
-  }
-
-  .dsa-head {
-    font-size: 2rem;
-  }
-
-  .dsa-box-para {
-    font-size: 1.2rem;
-  }
-
-  #prj-gallery {
-    padding-left: 12%;
-    padding-bottom: 10rem;
-  }
-
-  #prj-img {
-    height: 30rem;
-    width: 32rem;
-  }
-
-  #prj-grid {
-    gap: 2rem;
-    align-items: center;
-    text-align: center;
-    width: 70rem;
-  }
-}
-
-/* ================================
-   MacBook Pro 15" (1440 × 778)
-   Fix: nav pill width/centering + footer hairline
-================================== */
-@media (max-width: 1440px) and (max-height: 778px) {
-  /* Fix thin white bar at very top on some browsers */
-  html,
-  body {
-    background: var(--base-color);
-  }
-  body {
-    margin: 0;
-  }
-
-  /* ---------- NAV (keep centered/positioned, just smaller) ---------- */
-  nav {
-    top: 0rem;
-    width: 39%;
-  }
-
-  .feature-box,
-  .feature-box-two,
-  .feature-box-three,
-  .feature-box-four {
-    height: 30rem;
-  }
-
-  .heading-tertiary {
-    top: 14%;
-    right: 11%;
-  }
-
-  .heading-tertiary-two {
-    top: 14%;
-    right: 6.5%;
-  }
-
-  /* ---------- ABOUT ---------- */
-
-  .img-about-box {
-    margin-top: 20rem;
-    margin-left: 14rem;
-    height: 30rem;
-    width: 22rem;
-  }
-
-  .img-about-box img {
-    width: auto;
-    height: 30rem;
-  }
-
-  .about-box {
-    margin-top: 35%;
-    margin-left: -2rem;
-  }
-
-  /* EXPERIENCE */
-
-  .exp-box-one {
-    width: 30rem;
-    transform: translateX(52rem);
-  }
-  .exp-box-two {
-    width: 40rem;
-    transform: translateX(34rem);
-  }
-  .exp-box-three {
-    width: 45rem;
-    transform: translateX(22rem);
-  }
-  .exp-box-four {
-    width: 30rem;
-    transform: translateX(14rem);
-  }
-  .exp-box-five {
-    width: 22rem;
-    transform: translateX(6rem);
-  }
-
-  .story-box {
-    width: 50%;
-  }
-
-  /* HOBBIES */
-
-  .hobbies {
-    padding-top: 6rem;
-    /* padding-bottom: 6rem; */
-  }
-
-  .numb-text {
-    font-size: 1.1rem;
-  }
-
-  #about-box {
-    margin-left: 0rem;
-  }
-
-  .about-box-text,
-  .story-box-text {
-    font-size: 1.2rem;
-  }
-
-  .notes-box-text {
-    padding-top: 2rem;
-    font-size: 1.1rem;
-    width: 32%;
-  }
-
-  .feature-box__text {
-    padding: 1rem 1rem;
-  }
-
-  .heading-tertiary {
-    top: 14%;
-    right: 11%;
-  }
-
-  .heading-tertiary-two {
-    top: 14%;
-    right: 7%;
-  }
-
-  section.section-feature {
-    height: 155vh;
-  }
-
-  section.ai-section {
-    height: 370vh;
-  }
-
-  .ai-img {
-    height: 22rem;
-  }
-
-  .con-img-box img {
-    height: 12rem;
-  }
-
-  section.dsa-section {
-    height: 320vh;
-  }
-
-  section.projects-section {
-    height: 350vh;
-  }
-
-  .dsa-img {
-    height: 40rem;
-    width: auto;
-  }
-
-  .dsa-head {
-    font-size: 2rem;
-  }
-
-  .dsa-box-para {
-    font-size: 1.2rem;
-  }
-
-  #prj-gallery {
-    padding-left: 14%;
-    padding-bottom: 6rem;
-  }
-
-  #prj-img {
-    height: 30rem;
-    width: 100%;
-  }
-
-  #prj-grid {
-    gap: 3rem;
-    align-items: center;
-    text-align: center;
-    width: 65rem;
-  }
-}
-
-/* ============================================================
+/* (2) ===========================================================
    MacBook PRO 14": 1512 × 982  @2x
 ============================================================ */
 @media (max-width: 1512px) and (max-height: 982px) {
-  /* Fix thin white bar at very top on some browsers */
-  html,
-  body {
-    background: var(--base-color);
-  }
-  body {
-    margin: 0;
-  }
-
-  /* ---------- NAV (keep centered/positioned, just smaller) ---------- */
-  nav {
-    top: 0rem;
-    width: 38%;
+  :root {
+    --nav-w: 37%;
+    --h-feature: 125vh;
+    --h-ai: 300vh;
+    --h-dsa: 255vh;
+    --h-prj: 280vh;
   }
 
   .feature-box,
@@ -487,10 +52,6 @@
   .heading-tertiary-two {
     top: 14%;
     right: 6.5%;
-  }
-
-  .section-feature {
-    height: 125vh;
   }
 
   .quote-box {
@@ -595,16 +156,215 @@
     margin-left: 0;
   }
 
-  .ai-section {
-    height: 300vh;
+  .dsa-img {
+    height: 40rem;
+    width: auto;
   }
 
-  .dsa-section {
-    height: 255vh;
+  .dsa-head {
+    font-size: 2rem;
   }
 
-  .projects-section {
-    height: 280vh;
+  .dsa-box-para {
+    font-size: 1.2rem;
+  }
+
+  .prj-gallery {
+    padding-left: 10%;
+    padding-bottom: 5rem;
+    padding-top: 0;
+  }
+
+  .prj-img {
+    height: 32rem;
+  }
+
+  .prj-grid {
+    gap: 3rem;
+    align-items: center;
+    text-align: center;
+    width: 75rem;
+  }
+}
+
+/* (3) ===============================
+   MacBook Pro 15" (1440 × 932)
+   Fix: nav pill width/centering + footer hairline
+================================== */
+@media (max-width: 1440px) and (max-height: 932px) {
+  :root {
+    --nav-w: 39%;
+    --h-feature: 135vh;
+    --h-ai: 310vh;
+    --h-dsa: 265vh;
+    --h-prj: 295vh;
+  }
+  /* ---------- SECTION RULES / LINES BETWEEN AREAS ---------- */
+  /* Use any that apply in your codebase */
+  hr.section-rule,
+  .section-line,
+  .rule,
+  .divider {
+    height: 1px;
+    border: 0;
+    background: var(--base-border);
+    opacity: 0.55;
+    width: min(1200px, 92%);
+    margin: 2.25rem auto;
+  }
+
+  .feature-box,
+  .feature-box-two,
+  .feature-box-three,
+  .feature-box-four {
+    height: 30rem;
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  .quote-box {
+    margin-left: 6rem;
+    margin-right: -1rem;
+  }
+
+  .quote,
+  .quote-two {
+    font-size: 3.3rem;
+  }
+
+  .quote {
+    margin-left: 3rem;
+  }
+
+  .quote-two {
+    margin-left: 8rem;
+  }
+
+  .quote-icon {
+    margin-top: -6%;
+    margin-left: 1rem;
+    float: right;
+  }
+
+  .fa-solid {
+    font-weight: 500;
+    color: var(--base-text);
+    font-size: 5rem;
+  }
+
+  .footer__item-clock {
+    padding: 6px 16px;
+    width: 13rem;
+  }
+
+  .site-footer .footer-grid {
+    gap: 1rem 2rem;
+  }
+  footer h4,
+  .site-footer h4 {
+    font-size: 1.05rem;
+  }
+  footer a,
+  .site-footer a {
+    font-size: 0.98rem;
+  }
+
+  /* ---------- ABOUT ---------- */
+
+  .img-about-box {
+    margin-top: 20rem;
+    margin-left: 17rem;
+    height: 30rem;
+    width: 22rem;
+  }
+
+  .img-about-box img {
+    width: auto;
+    height: 30rem;
+  }
+
+  .about-box {
+    margin-top: 35%;
+    margin-left: -2rem;
+  }
+
+  /* EXPERIENCE */
+
+  .exp-box-one {
+    width: 30rem;
+    transform: translateX(52rem);
+  }
+  .exp-box-two {
+    width: 40rem;
+    transform: translateX(34rem);
+  }
+  .exp-box-three {
+    width: 45rem;
+    transform: translateX(22rem);
+  }
+  .exp-box-four {
+    width: 30rem;
+    transform: translateX(14rem);
+  }
+  .exp-box-five {
+    width: 22rem;
+    transform: translateX(6rem);
+  }
+
+  .story-box {
+    width: 50%;
+  }
+
+  /* HOBBIES */
+
+  .hobbies {
+    padding-top: 6rem;
+    /* padding-bottom: 6rem; */
+  }
+
+  .numb-text {
+    font-size: 1.1rem;
+  }
+
+  .about-box {
+    margin-left: 0;
+  }
+
+  .about-box-text,
+  .story-box-text {
+    font-size: 1.2rem;
+  }
+
+  .notes-box-text {
+    padding-top: 2rem;
+    font-size: 1.1rem;
+    width: 32%;
+  }
+
+  .feature-box__text {
+    padding: 1rem 1rem;
+  }
+
+  .heading-tertiary {
+    top: 14%;
+    right: 11%;
+  }
+
+  .heading-tertiary-two {
+    top: 14%;
+    right: 7%;
+  }
+
+  .heading-primary-sub-two {
+    font-size: 1.1rem;
+  }
+
+  .ai-img {
+    height: 22rem;
+  }
+
+  .con-img-box img {
+    height: 12rem;
   }
 
   .dsa-img {
@@ -621,45 +381,188 @@
   }
 
   .prj-gallery {
-    padding-left: 10%;
-    padding-bottom: 10rem;
+    padding-left: 11%;
+    padding-bottom: 5rem;
   }
 
-  .prj-gallery [id="prj-img"] {
-    height: 32rem;
+  .prj-img {
+    height: 30rem;
+    width: 32rem;
+  }
+
+  .prj-grid {
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+    width: 70rem;
+  }
+}
+
+/* (4) ===============================
+   MacBook Pro 15" (1440 × 778)
+   Fix: nav pill width/centering + footer hairline
+================================== */
+@media (max-width: 1440px) and (max-height: 778px) {
+  :root {
+    --nav-w: 39%;
+    --h-feature: 155vh;
+    --h-ai: 370vh;
+    --h-dsa: 320vh;
+    --h-prj: 350vh;
+  }
+
+  .feature-box,
+  .feature-box-two,
+  .feature-box-three,
+  .feature-box-four {
+    height: 30rem;
+  }
+
+  .heading-tertiary {
+    top: 14%;
+    right: 11%;
+  }
+
+  .heading-tertiary-two {
+    top: 14%;
+    right: 6.5%;
+  }
+
+  /* ---------- ABOUT ---------- */
+
+  .img-about-box {
+    margin-top: 20rem;
+    margin-left: 17rem;
+    height: 30rem;
+    width: 22rem;
+  }
+
+  .img-about-box img {
+    width: auto;
+    height: 30rem;
+  }
+
+  .about-box {
+    margin-top: 35%;
+    margin-left: -2rem;
+  }
+
+  /* EXPERIENCE */
+
+  .exp-box-one {
+    width: 30rem;
+    transform: translateX(52rem);
+  }
+  .exp-box-two {
+    width: 40rem;
+    transform: translateX(34rem);
+  }
+  .exp-box-three {
+    width: 45rem;
+    transform: translateX(22rem);
+  }
+  .exp-box-four {
+    width: 30rem;
+    transform: translateX(14rem);
+  }
+  .exp-box-five {
+    width: 22rem;
+    transform: translateX(6rem);
+  }
+
+  .story-box {
+    width: 50%;
+  }
+
+  /* HOBBIES */
+
+  .hobbies {
+    padding-top: 6rem;
+    /* padding-bottom: 6rem; */
+  }
+
+  .numb-text {
+    font-size: 1.1rem;
+  }
+
+  #about-box {
+    margin-left: 0rem;
+  }
+
+  .about-box-text,
+  .story-box-text {
+    font-size: 1.2rem;
+  }
+
+  .notes-box-text {
+    padding-top: 2rem;
+    font-size: 1.1rem;
+    width: 32%;
+  }
+
+  .feature-box__text {
+    padding: 1rem 1rem;
+  }
+
+  .heading-tertiary {
+    top: 14%;
+    right: 11%;
+  }
+
+  .heading-tertiary-two {
+    top: 14%;
+    right: 7%;
+  }
+
+  .ai-img {
+    height: 22rem;
+  }
+
+  .con-img-box img {
+    height: 12rem;
+  }
+
+  .dsa-img {
+    height: 40rem;
+    width: auto;
+  }
+
+  .dsa-head {
+    font-size: 2rem;
+  }
+
+  .dsa-box-para {
+    font-size: 1.2rem;
+  }
+
+  .prj-gallery {
+    padding-left: 13%;
+    padding-bottom: 6rem;
+  }
+
+  .prj-img {
+    height: 30rem;
+    width: 100%;
   }
 
   .prj-grid {
     gap: 3rem;
     align-items: center;
     text-align: center;
-    width: 75rem;
+    width: 65rem;
   }
 }
 
-/* ============================================================
+/* (5) ===========================================================
    MacBook AIR 13" (M1/M2): 1280 × 832  @2x
 ============================================================ */
 @media (max-width: 1280px) and (max-height: 832px) {
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html,
-  body {
-    background: var(--base-color);
-  }
-
-  /* ---------- NAV (keep centered/positioned, just smaller) ---------- */
-  nav {
-    top: 0rem;
-    width: 43%;
-  }
-
-  .section-feature {
-    height: 135vh;
+  :root {
+    --nav-w: 43%;
+    --h-feature: 130vh;
+    --h-ai: 350vh;
+    --h-dsa: 300vh;
+    --h-prj: 328vh;
   }
 
   /* Passion */
@@ -679,6 +582,10 @@
   .quote-box {
     margin-left: 5rem;
     margin-right: -1rem;
+  }
+
+  .quote {
+    margin-left: 0rem;
   }
 
   .quote-two {
@@ -833,20 +740,8 @@
     height: 40rem;
   }
 
-  .ai-section {
-    height: 350vh;
-  }
-
   .con-img {
     height: 10rem;
-  }
-
-  .dsa-section {
-    height: 300vh;
-  }
-
-  .projects-section {
-    height: 328vh;
   }
 
   .dsa-img {
@@ -867,7 +762,7 @@
     padding-bottom: 8rem;
   }
 
-  .prj-gallery [id="prj-img"] {
+  .prj-img {
     height: 28rem;
   }
 
