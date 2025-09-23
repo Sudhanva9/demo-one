@@ -463,45 +463,45 @@ const EXP_DATA = {
   });
 
  // Treat the project subpath (e.g., /demo-one) as home too
-  const getBasePath = () => {
-    // "/demo-one/about.html" -> ["", "demo-one", "about.html"] -> "/demo-one"
+// --- Path normalization: treat / and /index.html as the same
+const normalizePath = (p) => {
+  if (!p) return '/';
+  p = p.replace(/\/+$/, '');          // strip trailing slashes
+  p = p.replace(/\/index\.html$/i, ''); // map ".../index.html" → "..."
+  return p === '' ? '/' : p;
+};
+
+// Base dir of the current site (works local root, local subfolder, and GH Pages)
+const HOME_BASE = (() => {
+  if (location.hostname.endsWith('github.io')) {
+    // project site, e.g. /demo-one
     const seg = location.pathname.split('/')[1] || '';
-    return seg ? `/${seg}` : ''; // "" on root sites, "/demo-one" on project sites
-  };
+    return normalizePath(seg ? `/${seg}` : '/');
+  }
+  // local: derive the folder the current index lives in
+  const m = location.pathname.match(/^(.*)\/(?:index\.html)?$/i);
+  const base = m ? m[1] || '/' : '/';
+  return normalizePath(base);
+})();
 
-  const isHomePath = (pathname) => {
-    const base = getBasePath();                 // "" or "/demo-one"
-    let p = (pathname || '/').replace(/\/+$/, ''); // strip trailing "/"
-    // Normalize /index.html → "" to compare
-    if (p.endsWith('/index.html')) p = p.slice(0, -'/index.html'.length);
-    // Home if: "" or "/" or "/demo-one"
-    return p === '' || p === '/' || (base && p === base);
-  };
+const isHomePath = (pathname) => normalizePath(pathname) === HOME_BASE;
 
+const setRouteClass = (pathname) => {
+  document.body.classList.toggle('is-internal', !isHomePath(pathname));
+};
 
-  const setRouteClass = (pathname) => {
-    document.body.classList.toggle('is-internal', !isHomePath(pathname));
-  };
 
   // -------------------- HERO (".text-box") MANAGER --------------------
-  // Remove hero on internal routes; restore on home
+
+  // Strategy: only *remove* the hero on non-home routes.
+  // On Home, the fetched HTML already includes the hero; no caching needed.
   const HERO_SELECTOR = '.text-box';
-  let heroNode = document.querySelector(HERO_SELECTOR) || null;
-  const heroParent = heroNode?.parentNode || null;
 
   const ensureHeroFor = (pathname) => {
-    const wantHero = isHomePath(pathname);
-    const inDom = !!document.querySelector(HERO_SELECTOR);
-
-    if (wantHero) {
-      if (!inDom && heroNode && heroParent) heroParent.appendChild(heroNode);
-    } else {
-      if (inDom) {
-        heroNode = document.querySelector(HERO_SELECTOR);
-        heroNode?.remove();
-      }
-    }
+    /* no-op */
+    // if wantHero and it's missing, it will arrive with the Home HTML we just injected
   };
+
 
   // -------------------- ACTIVE NAV HIGHLIGHT --------------------
   const navLinks = Array.from(document.querySelectorAll('a.main-nav-link[data-link]'));
@@ -559,25 +559,26 @@ const EXP_DATA = {
     const { inner, title } = await fetchAppChunk(url);
 
     const swap = () => {
-      // 1) update header hero + header size for this route
-      ensureHeroFor(path);
-
-      // 2) swap content
+      // 1) swap content first
       app.innerHTML = inner;
       document.title = title;
 
-      // a11y
+      // 2) scroll/accessible focus
       app.setAttribute('tabindex', '-1');
       app.focus({ preventScroll: true });
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // 3) state classes + active link
-      setRouteClass(path);
+      // 3) route state + hero + nav highlight
+      setRouteClass(path);          // toggles .is-internal on <body>
+      ensureHeroFor(path);          // now acts on the *new* DOM
       setActiveLink(path);
       setActiveBookToggle();
       renderBookTab();
-      window.initImageRotators && window.initImageRotators();  
+
+      // 4) re-init any page widgets
+      window.initImageRotators && window.initImageRotators();
     };
+
 
     if (document.startViewTransition) document.startViewTransition(swap);
     else swap();

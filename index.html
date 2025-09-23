@@ -39,6 +39,22 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=format_quote"
     />
+    <script>
+      (function () {
+        try {
+          var v = localStorage.getItem("light-mode");
+          // Default to light on first visit (v === null), or keep light if previously chosen
+          if (v === null || v === "active") {
+            document.documentElement.classList.add("light-mode");
+          } else {
+            document.documentElement.classList.remove("light-mode");
+          }
+        } catch (e) {
+          // If localStorage is blocked, still prefer light
+          document.documentElement.classList.add("light-mode");
+        }
+      })();
+    </script>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/queries.css" />
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
@@ -52,16 +68,7 @@
         <nav class="main-nav" id="main-nav">
           <ul class="main-nav-list">
             <li>
-              <a
-                class="main-nav-link"
-                id="work-btn"
-                href="index.html"
-                data-link
-                <a
-                class="main-nav-link"
-                id="work-btn"
-                href="demo-one/index.html"
-                data-link
+              <a class="main-nav-link" id="work-btn" href="index.html" data-link
                 >Work <span class="nav-slash">/</span></a
               >
             </li>

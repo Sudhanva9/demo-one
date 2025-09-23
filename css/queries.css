@@ -2,6 +2,33 @@
    MacBook Pro 15" (1440 × 900)
    Fix: nav pill width/centering + footer hairline
 ================================== */
+@media (max-width: 1728px) and (max-height: 958px) {
+  #main-nav {
+    top: 0rem;
+    width: 32.5%;
+  }
+
+  .ai-section {
+    height: 340vh;
+  }
+
+  section.dsa-section {
+    height: 290vh;
+  }
+
+  section.section-feature {
+    height: 145vh;
+  }
+
+  section.projects-section {
+    height: 310vh;
+  }
+}
+
+/* ================================
+   MacBook Pro 15" (1440 × 900)
+   Fix: nav pill width/centering + footer hairline
+================================== */
 @media (max-width: 1440px) and (max-height: 932px) {
   /* Fix thin white bar at very top on some browsers */
   html,

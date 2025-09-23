@@ -1887,3 +1887,32 @@ a.experience-box:focus-visible {
     width: min(1200px, 92%);
     margin: 2.25rem auto; /* consistent rhythm between sections 
   }*/
+
+/* Hide hero/header unless we're on home */
+/* .header,
+.hero,
+.hero-wrap,
+.header-spacer {
+  display: none;
+} */
+
+/* On home, show them as usual */
+/* .is-home .header,
+.is-home .hero,
+.is-home .hero-wrap,
+.is-home .header-spacer {
+  display: block;
+} */
+
+/* Remove any top gap on non-home pages (in case first section has offsets) */
+/* body:not(.is-home) main > section:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+} */
+
+/* If you used a fixed height for the hero container, neutralize it when not home */
+/* body:not(.is-home) .header,
+body:not(.is-home) .hero,
+body:not(.is-home) .hero-wrap {
+  height: auto;
+} */
